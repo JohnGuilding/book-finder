@@ -1,0 +1,12 @@
+<section class="search">
+    <input [(ngModel)]="searchText" type="text" placeholder="search by author">
+    <button (click)="handleSearch()" class="btn-search">Search</button>
+    <fa-icon [icon]="faHeart" (click)="handleNavigate()" class="favourites-icon"></fa-icon>
+</section>
+<section class="search-display">
+    <div *ngFor="let book of books;" class="book">
+        <img src="{{book.imageLinks.thumbnail}}" alt="">
+        <h1>{{book.title}}</h1>
+        <p>{{book.authors}}</p>
+    </div>
+</section>
