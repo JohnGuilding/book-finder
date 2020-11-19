@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 interface GoogleBooksResponse {
   items: any[];
@@ -20,7 +21,7 @@ export class SearchComponent implements OnInit {
   faHeart = faHeart;
   books: any[] = [];
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router, private firestore: AngularFirestore) { }
 
   ngOnInit(): void {
   }
@@ -37,7 +38,6 @@ export class SearchComponent implements OnInit {
         return book;
       });
       console.log(this.books);
-
     });
   }
 
@@ -45,4 +45,9 @@ export class SearchComponent implements OnInit {
     this.router.navigate(['/collection']);
   }
 
+  handleSave(book) {
+    // this.firestore.doc('books/$book.id').set(book, {merge: true})
+    // this.firestore.doc('books/$book.id').set({id: {book_id}}, {merge: true})
+    this.firestore.collection('books').add(book);
+  }
 }

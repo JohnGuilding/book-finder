@@ -1,3 +1,12 @@
 <section class="favourites">
-    <h2>Your favourites</h2>
+    <div class="favourites-title">
+        <h2>Your Favourites</h2>
+        <button (click)="handleNavigate()">Back</button>
+    </div>
+    <div *ngFor="let book of books;" class="book">
+        <img src="{{book.imageLinks.thumbnail}}" alt="">
+        <h1>{{book.title}}</h1>
+        <p>{{book.authors}}</p>
+        <button (click)="handleDelete(book)">unfavourite</button>
+    </div>
 </section>
