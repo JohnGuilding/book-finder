@@ -23,6 +23,12 @@ export class CollectionComponent implements OnInit {
     });
   }
 
+  handleDelete(book) {
+    this.firestore.collection('books').doc(book).delete().then(() => {
+      console.log('deleted');
+    });
+  }
+
   handleNavigate() {
     this.router.navigate(['/']);
   }

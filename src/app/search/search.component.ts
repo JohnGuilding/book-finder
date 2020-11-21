@@ -46,8 +46,6 @@ export class SearchComponent implements OnInit {
   }
 
   handleSave(book) {
-    // this.firestore.doc('books/$book.id').set(book, {merge: true})
-    // this.firestore.doc('books/$book.id').set({id: {book_id}}, {merge: true})
     this.firestore.collection('books').add(book);
   }
 }
