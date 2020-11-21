@@ -74,4 +74,17 @@ button {
         text-align: center;
         font-style: italic;
     }
+
+    button {
+        height: 30px;
+        padding: 5px;
+        margin-left: 10px;
+        border-radius: 5px;
+        border: 1px solid darkgrey;
+        cursor: pointer;
+    
+        &:focus {
+            outline: none;
+        }
+    }
 }

@@ -3,12 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
 
-interface GoogleBooksResponse {
-  items: any[];
-  kind: string;
-  totalItems: number;
-}
-
 @Component({
   selector: 'app-collection',
   templateUrl: './collection.component.html',
